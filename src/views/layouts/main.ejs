@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.0.1/dist/cyborg/bootstrap.min.css">
+    <title>mongodb passport</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <%if (user){%>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/profile">profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">logout</a>
+                        </li>
+                    <%}else{%>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/signin">signin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signup">signup</a>
+                        </li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <%if (signupMessage.length > 0){%>
+            <div class="alert alert-danger"><%= signupMessage %></div>
+        <%}%>
+        <%if (signinMessage.length > 0){%>
+            <div class="alert alert-danger"><%= signinMessage %></div>
+        <%}%>
+        <%- body %>
+    </div>
+</body>
+</html>
